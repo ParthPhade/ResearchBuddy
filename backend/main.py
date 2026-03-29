@@ -130,11 +130,9 @@ async def analyze_paper(
         ## 📊 I. THE ROADMAP (How they did it)
         ```mermaid
         graph TD
-          A[The Problem 🛑] --> B[The Plan 📝]
-          B --> C[The Test 🧪]
-          C --> D[The Big Win 🏆]
+          [CRITICAL: Generate a detailed, step-by-step flowchart of the SPECIFIC methodology used in this paper. Use 6-10 steps. Use simple labels and EMOJIS for each step. Example: 'Collect Data 📡' -> 'Clean Messy Data 🧹' -> 'Train AI Model 🧠' etc.]
         ```
-        [Note: Change labels to match the paper but KEEP THEM SIMPLE.]
+        [Note: Map this flowchart EXACTLY to the actual steps the researchers took in this specific paper.]
 
         ## 🌍 II. WHY THIS MATTERS (Real World Impact)
         * [How this changes your phone/health/future]
