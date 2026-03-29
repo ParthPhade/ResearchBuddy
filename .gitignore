@@ -1,0 +1,22 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+dist/
+build/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+.env
+
+# Google Auth
+token.json
+client_secrets.json
+
+# Project Specific
+ResearchBuddy/backend/static/
+ResearchBuddy/backend/backend.log
