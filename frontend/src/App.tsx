@@ -212,9 +212,10 @@ function App() {
       useCORS: true,
       backgroundColor: theme === 'dark' ? '#0f172a' : '#f8fafc',
       logging: false,
+      allowTaint: true
     });
 
-    const imgData = canvas.toDataURL('image/png');
+    const imgData = canvas.toDataURL('image/jpeg', 1.0);
     const imgWidth = pageWidth;
     const imgHeight = (canvas.height * imgWidth) / canvas.width;
     
@@ -222,14 +223,14 @@ function App() {
     let position = 0;
 
     // First page
-    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+    pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
     heightLeft -= pageHeight;
 
     // Additional pages
     while (heightLeft >= 0) {
       position = heightLeft - imgHeight;
       pdf.addPage();
-      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+      pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
       heightLeft -= pageHeight;
     }
 
