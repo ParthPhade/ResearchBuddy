@@ -18,5 +18,5 @@ token.json
 client_secrets.json
 
 # Project Specific
-ResearchBuddy/backend/static/
-ResearchBuddy/backend/backend.log
+backend/static/
+backend/backend.log
