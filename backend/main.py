@@ -73,9 +73,17 @@ async def analyze_paper(
         # 1. Extract Text
         text = ""
         for page in doc:
-            text += page.get_text()
+            extracted = page.get_text()
+            if extracted:
+                text += extracted
         
-        # 2. Extract Key Images (First 3)
+        if not text.strip() or len(text.strip()) < 50:
+            raise HTTPException(
+                status_code=400, 
+                detail="This PDF seems to have no readable text (it might be a scan). Please try a paper with selectable text."
+            )
+        
+        # 2. Extract Key Images
         image_urls = []
         img_count = 0
         for i in range(len(doc)):

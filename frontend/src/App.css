@@ -190,20 +190,23 @@ h1 {
   cursor: not-allowed;
 }
 
-/* Report View */
+/* Report View - Full Width & Centered */
 .report-container {
-  display: grid;
-  grid-template-columns: 1fr 350px;
+  display: flex;
+  flex-direction: column;
   gap: 2.5rem;
   margin-top: 2rem;
+  width: 100%;
 }
 
 .report-main {
   background: var(--card);
-  padding: 3rem;
+  padding: 3.5rem;
   border-radius: 28px;
   border: 1px solid var(--card-border);
   box-shadow: var(--shadow);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .markdown-body {
@@ -243,10 +246,16 @@ h1 {
   color: var(--text-main);
 }
 
-/* Sidebar */
-.report-sidebar h3 {
-  font-size: 1.4rem;
-  margin-bottom: 1.5rem;
+/* Sidebar transformed into a Gallery */
+.report-sidebar {
+  width: 100%;
+}
+
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
 }
 
 .extracted-img-container {
@@ -255,7 +264,7 @@ h1 {
   border-radius: 20px;
   border: 1px solid var(--card-border);
   box-shadow: var(--shadow);
-  margin-bottom: 1.5rem;
+  width: 300px; /* Consistent size for gallery items */
 }
 
 .extracted-img-container img {
