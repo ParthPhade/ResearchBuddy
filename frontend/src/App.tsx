@@ -271,7 +271,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="header-content">
-          <h1>ResearchBuddy <span className="badge">AI 2.5</span></h1>
+          <h1>ResearchBuddy <span className="badge">Intelligence 2.5</span></h1>
           <div className="header-actions">
             <button className="btn-icon" onClick={toggleTheme} title="Toggle Theme">
               {theme === 'light' ? '🌙' : '☀️'}
@@ -286,7 +286,7 @@ function App() {
             </button>
           </div>
         </div>
-        <p className="subtitle">Transforming complex papers into clear, visual insights.</p>
+        <p className="subtitle">Advanced Academic Intelligence Platform: Transforming research into structured insights.</p>
       </header>
 
       {showSettings && (
@@ -302,8 +302,8 @@ function App() {
           <div className="setting-item">
             <label>Analysis Style</label>
             <select value={style} onChange={(e) => setStyle(e.target.value)}>
-              <option value="simple">Simple Guide (Analogy Based)</option>
-              <option value="notebook">Notebook Style (Detailed Story)</option>
+              <option value="simple">Pedagogical Analysis (Concept Focus)</option>
+              <option value="notebook">Comprehensive Synthesis (Process Focus)</option>
             </select>
           </div>
           <div className="setting-item">
@@ -324,12 +324,12 @@ function App() {
             <div className="file-drop">
               <input type="file" accept="application/pdf" onChange={handleFileChange} />
               <p style={{fontSize: '1.2rem', fontWeight: 600}}>
-                {file ? file.name : "Click to select or drag your research paper (PDF)"}
+                {file ? file.name : "Select Research Document (PDF)"}
               </p>
-              <p style={{color: 'var(--text-dim)', marginTop: '0.5rem'}}>Unlock deep insights in seconds</p>
+              <p style={{color: 'var(--text-dim)', marginTop: '0.5rem'}}>Securely analyze and deconstruct academic papers</p>
             </div>
             <button type="submit" disabled={loading} className="submit-btn primary">
-              {loading ? `Analyzing... ${Math.round(progress)}%` : "Generate Study Guide"}
+              {loading ? `Analyzing... ${Math.round(progress)}%` : "Generate Research Analysis"}
             </button>
           </form>
           {loading && (

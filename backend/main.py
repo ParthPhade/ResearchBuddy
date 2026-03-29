@@ -103,60 +103,57 @@ async def analyze_paper(
         llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", google_api_key=api_key) if provider == "gemini" else ChatOpenAI(model="gpt-4o-mini", openai_api_key=api_key)
 
         if style == "notebook":
-            persona_prompt = "You are an AI Notebook Assistant. Create an interactive-style 'Notebook' summary. Use a 'Author's Diary' tone, explaining the 'behind-the-scenes' of the research."
+            persona_prompt = "You are an AI Research Intelligence Assistant. Provide a detailed, pedagogical 'Notebook' analysis of the research, focusing on providing a comprehensive understanding of the author's intent and findings."
         else:
-            persona_prompt = "You are Your Genius Best Friend. Explain this paper so simply that a 10-year-old would get excited about it. Use zero 'professor words' and constantly use analogies (like pizza, video games, or TikTok)."
+            persona_prompt = "You are an Advanced Research Strategist. Deconstruct this paper into a highly professional, pedagogical guide. Use clear, formal English and sophisticated analogies to ensure deep conceptual mastery."
 
         prompt = f"""{persona_prompt}
 
         ---
-        STRICT RULES:
-        1. NO LONG PARAGRAPHS. Use short, punchy bullet points.
-        2. NO ACADEMIC JARGON. If you use a hard word, explain it like a friend would.
-        3. FLOWCHART IS MANDATORY. Use simple labels like 'Step 1: The Idea' -> 'Step 2: The Test'.
-        4. USE EMOJIS to make it look friendly.
+        STRICT OPERATIONAL RULES:
+        1. NO INFORMAL OR CHILDISH LANGUAGE. Maintain a high professional standard.
+        2. NO LONG PARAGRAPHS. Utilize structured, nested bullet points for clarity and depth.
+        3. FLOWCHART IS MANDATORY. Map the SPECIFIC methodology of this paper using a 'mermaid graph TD' block.
+        4. USE PROFESSIONAL TABLES for comparative data or definitions.
 
         ---
-        STRUCTURE:
+        REQUIRED REPORT STRUCTURE:
 
-        # 📚 THE ULTIMATE CHEAT SHEET: [Title]
+        # 📄 RESEARCH INTELLIGENCE GUIDE: [Title]
 
-        > ### 🎯 THE 10-WORD TAKEAWAY
-        > [Summarize the whole paper in exactly 10 words or less]
+        > ### 🏛️ EXECUTIVE BRIEFING
+        > [Provide a sophisticated, high-level summary of the core thesis and its strategic importance to the field.]
 
-        > ### 🌟 THE BIG PICTURE
-        > [Explain the core discovery using a fun analogy. Why should I care?]
-
-        ## 📊 I. THE ROADMAP (How they did it)
+        ## 📊 I. PROCEDURAL ARCHITECTURE (Methodology Roadmap)
         ```mermaid
         graph TD
-          [CRITICAL: Generate a detailed, step-by-step flowchart of the SPECIFIC methodology used in this paper. Use 6-10 steps. Use simple labels and EMOJIS for each step. Example: 'Collect Data 📡' -> 'Clean Messy Data 🧹' -> 'Train AI Model 🧠' etc.]
+          [CRITICAL: Map the SPECIFIC methodological steps of this paper. Use 6-10 detailed nodes with professional labels and relevant icons/emojis.]
         ```
-        [Note: Map this flowchart EXACTLY to the actual steps the researchers took in this specific paper.]
 
-        ## 🌍 II. WHY THIS MATTERS (Real World Impact)
-        * [How this changes your phone/health/future]
-        * [One concrete example of this in the real world]
+        ## 🔍 II. CRITICAL RESEARCH GAP
+        *   **Context:** What were the limitations of the existing state-of-the-art?
+        *   **The Resolution:** How does this research systematically address that specific gap?
 
-        ## 💡 III. JARGON DECODER (STRICT TABLE)
-        | Hard Word | Simple English | "Like a..." (Analogy) |
+        ## 🌍 III. STRATEGIC REAL-WORLD IMPLICATIONS
+        * [Explain the long-term impact on industry, technology, or society.]
+        * [Provide a concrete example of the practical application of these findings.]
+
+        ## 💡 IV. CONCEPTUAL FRAMEWORK & TERMINOLOGY
+        | Technical Term | Comprehensive Definition | Contextual Significance |
         | :--- | :--- | :--- |
-        [STRICTLY 5-10 terms here. NO PARAGRAPHS.]
+        [Identify 6-10 core concepts. Provide deep, professional explanations.]
 
-        ## 🧮 IV. THE MAGIC BEHIND THE CURTAIN (Math Decoder)
-        [Find the hard math/logic. Explain the 'Vibe' of the math without using scary symbols.]
+        ## ⚙️ V. CORE METHODOLOGICAL FRAMEWORK
+        * **1. Design & Configuration:** [Detail the research setup]
+        * **2. Execution & Data Synthesis:** [Detail the process]
+        * **3. Validation & Statistical Rigor:** [How accuracy was established]
 
-        ## ⚙️ V. THE 1-2-3 METHOD
-        * **1. The Setup:** [What they gathered]
-        * **2. The Action:** [What they did - simple!]
-        * **3. The Proof:** [How they knew it worked]
-
-        ## 📈 VI. THE 'AHA!' MOMENTS
-        * 💡 [Coolest finding 1]
-        * 💡 [Coolest finding 2]
+        ## 📈 VI. KEY FINDINGS & ANALYTICAL INSIGHTS
+        * 🔷 [Major Insight 1: Deep explanation]
+        * 🔷 [Major Insight 2: Deep explanation]
 
         ---
-        PAPER TEXT:
+        PAPER TEXT FOR ANALYSIS:
         {text[:18000]}
         """
 
